@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import ContentBody from './components/ContentBody';
+import Navbar from './components/Navbar';
 
 function App() {
+  const [isDelete, setIsDelete] = useState(false)
+  const [bg, setBg] = useState(true)
+  
+  // const colorBg = {
+  //   backgroundColor: 'black',
+  //   opacity: '0.4'
+  // }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar isDelete={isDelete} setIsDelete={setIsDelete} />
+      <ContentBody bg={bg} setBg={setBg} isDelete={isDelete} setIsDelete={setIsDelete}   />
     </div>
   );
 }
